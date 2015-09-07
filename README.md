@@ -8,9 +8,8 @@ Battle ships game to learn OOP.
 1. `player`
 
 ## Verbs
-1. `place` (User places a ship.)
+1. `place` (User places a ship with orientation.)
 1. `choose_size` (User chooses size of ship.)
-1. `choose_orientation` (User chooses orientation of ship.)
 1. `in_bounds?` (Is ship on board?)
 1. `overlapped?` (Do ships overlap?)
 1. `fire` (Fire.)
@@ -27,4 +26,3 @@ Objects  | Messages
 `ship` | `place`, `choose_size`, `choose_orientation`, `fire`, `hit?`, `sunk?`
 `board` | `in_bounds?`, `overlapped?`, `result?`, `map?`, `turn`
 `player` |
-
