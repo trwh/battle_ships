@@ -15,12 +15,14 @@ describe Ship do
   end
 
   it 'when placed, ship has location and orientation' do
-    origin=[0,0]
-    orientation='N'
+    origin = [0,0]
+    orientation = 'N'
     expect(ship.place(origin, orientation)).to eq([[0,0],[0,1],[0,2]])
   end
 
-  xit 'ship reacts to fire'
+  it 'ship reacts to fire' do
+    expect(ship).to respond_to(:fire).with(1).argument
+  end
 
   xit 'ship reports hit'
 
