@@ -1,6 +1,5 @@
 require_relative '../lib/ship.rb'
 
-
 describe Ship do
 
   xit 'ship makes ship object of correct length'
