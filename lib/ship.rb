@@ -30,7 +30,9 @@ class Ship
   end
 
   def fire(coordinates)
+    fail 'Cannot fire on ship that has not been placed' unless @cells
 
+    @cells.include?(coordinates)
   end
 
 
