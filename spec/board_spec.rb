@@ -9,11 +9,11 @@ describe Board do
   let (:floating_ship){ double(:ship, sunk?: false) }
   let (:sunk_ship){ double(:ship, sunk?: true) }
 
-  it 'board takes a single argument' do
+  it 'takes a single argument' do
     expect(Board).to respond_to(:new).with(1).argument
   end
 
-  it 'board makes board object of correct size' do
+  it 'makes board object of correct size' do
     expect(board10.size).to eq(10)
   end
 
@@ -30,7 +30,7 @@ describe Board do
     expect(board10).to respond_to(:overlapped?).with(2).argument
   end
 
-  it 'test whether ships are overlapped' do
+  it 'tests whether ships are overlapped' do
     expect(board10).not_to be_overlapped(ship1, ship2)
     expect(board10).to be_overlapped(ship1, ship3)
   end
@@ -39,13 +39,9 @@ describe Board do
     expect(board10).to respond_to(:result?).with(1).argument
   end
 
-  it 'declares loser' do
+  it 'declares the player a loser' do
     expect(board10).not_to be_result(floating_ship, floating_ship, floating_ship)
     expect(board10).to be_result(sunk_ship, sunk_ship, sunk_ship)
   end
-
-  xit 'returns coordinates of hits and misses so far'
-
-  xit 'knows which players turn is next'
 
 end

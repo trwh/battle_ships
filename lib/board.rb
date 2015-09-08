@@ -1,5 +1,3 @@
-# require_relative './ship.rb'
-
 class Board
 
   attr_reader :size
@@ -11,9 +9,7 @@ class Board
   def in_bounds?(ship)
     ship.cells.each do |coordinates|
       coordinates.each do |i|
-        if i > (size - 1)
-          return false
-        end
+        return false if i > (size - 1)
       end
     end
 
@@ -24,5 +20,12 @@ class Board
     !( (ship1.cells & ship2.cells).empty? )
   end
 
+  def result?(*ships)
+    ships.each do |i|
+      return false if !(i.sunk?)
+    end
+
+    true
+  end
 
 end

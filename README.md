@@ -24,5 +24,5 @@ Battle ships game to learn OOP.
 Objects  | Messages
 ------------- | -------------
 `ship` | `place`, `choose_size`, `choose_orientation`, `fire`, `hit?`, `sunk?`
-`board` | `in_bounds?`, `overlapped?`, `result?`, `map?`, `turn`
-`player` |
+`board` | `in_bounds?`, `overlapped?`, `result?`
+`player` | `map?`, `turn`
