@@ -20,6 +20,9 @@ class Board
       true
   end
 
+  def overlapped?(ship1, ship2)
+    !( (ship1.cells & ship2.cells).empty? )
+  end
 
 
 end

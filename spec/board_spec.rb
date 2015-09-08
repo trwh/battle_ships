@@ -6,6 +6,8 @@ describe Board do
   let (:ship1){ double(:ship, cells: [[0,0], [0,1], [0,2]]) }
   let (:ship2){ double(:ship, cells: [[0,10], [1,10], [2,10]]) }
   let (:ship3){ double(:ship, cells: [[0,2], [0,3], [0,4]]) }
+  let (:floating_ship){ double(:ship, sunk?: false) }
+  let (:sunk_ship){ double(:ship, sunk?: true) }
 
   it 'board takes a single argument' do
     expect(Board).to respond_to(:new).with(1).argument
@@ -33,9 +35,16 @@ describe Board do
     expect(board10).to be_overlapped(ship1, ship3)
   end
 
-  xit 'announces winner'
+  it 'receives result? with (at least) one argument' do
+    expect(board10).to respond_to(:result?).with(1).argument
+  end
 
-  xit 'retuns coordinates of hits and misses so far'
+  it 'declares loser' do
+    expect(board10).not_to be_result(floating_ship, floating_ship, floating_ship)
+    expect(board10).to be_result(sunk_ship, sunk_ship, sunk_ship)
+  end
+
+  xit 'returns coordinates of hits and misses so far'
 
   xit 'knows which players turn is next'
 
