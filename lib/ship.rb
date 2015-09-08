@@ -2,11 +2,17 @@ require_relative './board.rb'
 
 class Ship
 
-  attr_reader :length, :cells
+  attr_reader :length
 
   def initialize(length)
     @length = length
     @shots = []
+  end
+
+  def cells
+    fail 'Ship has not been placed yet' unless @cells
+
+    @cells
   end
 
   def place(origin, orientation)

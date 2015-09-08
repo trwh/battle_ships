@@ -5,6 +5,7 @@ describe Board do
   let (:board10){ Board.new(10) }
   let (:ship1){ double(:ship, cells: [[0,0], [0,1], [0,2]]) }
   let (:ship2){ double(:ship, cells: [[0,10], [1,10], [2,10]]) }
+  let (:ship3){ double(:ship, cells: [[0,2], [0,3], [0,4]]) }
 
   it 'board takes a single argument' do
     expect(Board).to respond_to(:new).with(1).argument
@@ -23,7 +24,14 @@ describe Board do
     expect(board10).not_to be_in_bounds(ship2)
   end
 
-  xit 'test whether ships are overlapped'
+  it 'receives overlapped? with two arguments' do
+    expect(board10).to respond_to(:overlapped?).with(2).argument
+  end
+
+  it 'test whether ships are overlapped' do
+    expect(board10).not_to be_overlapped(ship1, ship2)
+    expect(board10).to be_overlapped(ship1, ship3)
+  end
 
   xit 'announces winner'
 
