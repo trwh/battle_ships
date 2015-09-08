@@ -8,6 +8,8 @@ class Board
     @size = size
   end
 
+  def in_bounds?(ship)
+  end
 
 
 end

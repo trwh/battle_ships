@@ -13,11 +13,17 @@ describe Board do
   end
 
   it 'receives in_bounds? with a single argument' do
-    expect(:board10).to respond_to(:in_bounds?).with(1).argument
+    expect(board10).to respond_to(:in_bounds?).with(1).argument
   end
 
-  it 'tests whether ship is within bounds'
-
+  it 'tests whether ship is within bounds' do
+    ship1 = Ship.new(3)
+    ship2 = Ship.new(3)
+    ship1.place([0,0], 'N')
+    ship2.place([10,0], 'E')
+    expect(board10.in_bounds?(ship1)).to be_in_bounds
+    expect(board10.in_bounds?(ship2)).not_to be_in_bounds
+  end
 
   xit 'test whether ships are overlapped'
 
