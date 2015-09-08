@@ -3,6 +3,8 @@ require_relative '../lib/board.rb'
 describe Board do
 
   let (:board10){ Board.new(10) }
+  let (:ship1){ double(:ship, cells: [[0,0], [0,1], [0,2]]) }
+  let (:ship2){ double(:ship, cells: [[0,10], [1,10], [2,10]]) }
 
   it 'board takes a single argument' do
     expect(Board).to respond_to(:new).with(1).argument
@@ -17,12 +19,8 @@ describe Board do
   end
 
   it 'tests whether ship is within bounds' do
-    ship1 = Ship.new(3)
-    ship2 = Ship.new(3)
-    ship1.place([0,0], 'N')
-    ship2.place([10,0], 'E')
-    expect(board10.in_bounds?(ship1)).to be_in_bounds
-    expect(board10.in_bounds?(ship2)).not_to be_in_bounds
+    expect(board10).to be_in_bounds(ship1)
+    expect(board10).not_to be_in_bounds(ship2)
   end
 
   xit 'test whether ships are overlapped'

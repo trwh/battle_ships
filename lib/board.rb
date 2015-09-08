@@ -1,4 +1,4 @@
-require_relative './ship.rb'
+# require_relative './ship.rb'
 
 class Board
 
@@ -9,7 +9,17 @@ class Board
   end
 
   def in_bounds?(ship)
+    ship.cells.each do |coordinates|
+      coordinates.each do |i|
+        if i > (size - 1)
+          return false
+        end
+      end
+    end
+
+      true
   end
+
 
 
 end

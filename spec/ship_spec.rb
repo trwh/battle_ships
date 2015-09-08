@@ -19,6 +19,10 @@ describe Ship do
     expect(ship3.length).to eq(3)
   end
 
+  it 'raises an error if asked for cells it occupies before being placed' do
+    expect{ ship3.cells }.to raise_error 'Ship has not been placed yet'
+  end
+
   it 'when placed, ship has location and orientation' do
     expect(ship3.place([0,0], 'N')).to eq([[0,0],[0,1],[0,2]])
     expect(ship2.place([3,4], 'E')).to eq([[3,4],[4,4]])

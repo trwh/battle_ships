@@ -2,7 +2,7 @@ require_relative './board.rb'
 
 class Ship
 
-  attr_reader :length
+  attr_reader :length, :cells
 
   def initialize(length)
     @length = length
