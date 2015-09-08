@@ -2,8 +2,9 @@ class Board
 
   attr_reader :size
 
-  def initialize(size)
+  def initialize(size, ships)
     @size = size
+    @ships = ships
   end
 
   def in_bounds?(ship)
@@ -26,6 +27,10 @@ class Board
     end
 
     true
+  end
+
+  def fire(coordinates)
+
   end
 
 end
