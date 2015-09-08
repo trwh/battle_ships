@@ -9,10 +9,15 @@ describe Board do
   end
 
   it 'board makes board object of correct size' do
-    expect(board10.length).to eq(10)
+    expect(board10.size).to eq(10)
   end
 
-  xit 'tests whether ship is within bounds'
+  it 'receives in_bounds? with a single argument' do
+    expect(:board10).to respond_to(:in_bounds?).with(1).argument
+  end
+
+  it 'tests whether ship is within bounds'
+
 
   xit 'test whether ships are overlapped'
 
