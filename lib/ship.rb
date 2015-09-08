@@ -6,6 +6,7 @@ class Ship
 
   def initialize(length)
     @length = length
+    @shots = []
   end
 
   def place(origin, orientation)
@@ -32,9 +33,19 @@ class Ship
   def fire(coordinates)
     fail 'Cannot fire on ship that has not been placed' unless @cells
 
+    @shots << coordinates
     @cells.include?(coordinates)
   end
 
+  def sunk?
+    @cells.each do |i|
+      if !@shots.include?(i)
+        return false
+      end
+    end
+
+    true
+  end
 
 
 end

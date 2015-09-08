@@ -11,7 +11,7 @@ describe Ship do
   # let (:orientation){ 'N' }
   # let (:ship){ Ship.new(3) }
 
-  it 'ship makes ship object' do
+  it 'ship takes a single argument' do
       expect(Ship).to respond_to(:new).with(1).argument
   end
 
