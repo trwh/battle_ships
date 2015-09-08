@@ -1,6 +1,7 @@
 class Player
 
   attr_accessor :turn
+  attr_reader :hits, :misses
 
   def initialize(player_no)
     @player_no = player_no
@@ -14,5 +15,12 @@ class Player
     @misses = []
   end
 
+  def fire(board, coordinates)
+    if board.fire(coordinates)
+      @hits << coordinates
+    else
+      @misses << coordinates
+    end
+  end
 
 end

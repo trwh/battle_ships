@@ -10,7 +10,7 @@ describe Board do
   let (:sunk_ship){ double(:ship, sunk?: true) }
 
   it 'takes a single argument' do
-    expect(Board).to respond_to(:new).with(1).argument
+    expect(Board).to respond_to(:new).with(2).argument
   end
 
   it 'makes board object of correct size' do
@@ -43,5 +43,14 @@ describe Board do
     expect(board10).not_to be_result(floating_ship, floating_ship, floating_ship)
     expect(board10).to be_result(sunk_ship, sunk_ship, sunk_ship)
   end
+
+  it 'receives fire with one argument' do
+    expect(board10).to respond_to(:fire).with(1).argument
+  end
+
+  xit 'fires on all ships and returns any hits' do
+
+  end
+
 
 end
